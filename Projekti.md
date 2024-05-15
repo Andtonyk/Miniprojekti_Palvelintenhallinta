@@ -12,6 +12,14 @@ On siis mahdollista että esityksen jälkeen saan ohjeita, joilla saan toteutett
 
 Tein myös ongelmista johtuen ajettavan kokoelman hyviä perusohjelmia, jotta voisin osoittaa sillä aivan perusasioiden hallinnan, halutun projektin ongelmista johtuen.
 
+## Tarkoitus
+
+Projekti on tarkoitettu mahdollistamaan suhteelisen hyvältä vaikuttava python-ympäristöllinen aineiston muodostaminen myös graafisesti rajoitetussa ympäristössä
+
+## Lisenssi
+
+GNU General Public License v3.0 
+
 ## Tarvittavat ohjelmat alkuun pääsyssä
 
 Jotta loppu tulemaan päästäisiin tarvitset alla olevat tai vastaavat ohjelmat.
