@@ -82,4 +82,12 @@ Tällä hetkellä listatut tiedot voidaan korvata Tero Karvisen esimerkillä, jo
     	
     end
 
+Useamman uuden koneen lisääminen voidaan toteuttaa syöttämällä uusia kenttiä jo muodostettujen t001 ja t002 jälkeen.
+Korvaa kentät joissa on x- nimellisesti halutun mukaisilla tiedoilla ja IP-osoitteen xxx-osio tai koko IP-osoite halutun mukaisella, ei päällekkäisellä IP-osoite tiedolla.
+
+        config.vm.define "x", primary: true do |x|
+    		x.vm.hostname = "x"
+    		x.vm.network "private_network", ip: "192.168.88.xxx"
+    	end
+
 ## 
