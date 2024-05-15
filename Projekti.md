@@ -187,3 +187,105 @@ Nyt voit tarkistaa tulivatko kaikkien minioneiden yhdistymispyynnöt onnistunees
 Jos kaikki minion-koneet näkyvät odottavissa koneissa, voit siirtyä hyväksymään ne.
     
     sudo salt-key -A
+
+Tämän jälkeen on vielä hyvä varmistaa että hyväksytyt koneet vastaavat masterilta tuleviin salt-komentoihin.
+
+    sudo salt '*' cmd.run 'whoami'
+
+Jos kaikki toivotut minionit vastasivat kyselyyn, voidaan siirtyä muodostamaan masterilla ajettavia komentoja.
+
+## Hear ye, hear ye!
+
+Siirry masterilla polkuun /srv/salt/
+
+    cd /srv/salt
+
+Jos kyseistä polkua ei vielä olisi muodostettuna, siirry srv:lle ja muodosta siellä itsellesi salt-kansio
+
+    $ cd /srv
+    /srv$ sudo mkdir salt
+
+Kun polkurakenne on muotoa /srv/salt, voidaan muodostaa kutsukomennolle kansio saltin alle.
+Minä muodostan kaksi erillistä kansiota: ourpython ja essentials
+
+    /srv/salt$ sudo mkdir essentials
+    /srv/salt$ sudo mkdir ourpython
+
+Tämän jälkeen siirryin muodostamaan ensin essentialin sisältöä.
+
+    cd essentials
+
+/srv/salt/essentials$ kansioon muodostin init.sls tiedoston, jonka sisään muodostin sen kutsunnalle olennaisia tunnisteita.
+
+    sudoedit init.sls
+
+Sisällöksi tuli init.sls:ssä alla olevan mukainen, ohjeellinen sisältö.
+
+  #srv/salt/essentials/init.sls
+    mypkgs:
+      pkg.installed:
+        - pkgs:
+          - micro
+          - curl
+          - git
+          - build-essential
+          - vlc
+
+Essentials-kansion init.sls:n sisällön muodostamisen ja tallettamisen jälkeen voit vielä tarkistaa että sisältö vastaa ohjeellista sisältöä. 
+
+    cat /srv/salt/essentials/init.sls
+
+Palaa tarkistuksen jälkeen /srv/salt/ polkuun ja testaa muodostetun init.sls:n toimivuus, kutsumalla sitä saltilla paikallisesti. 
+
+    cd ..
+    sudo salt-call --local state.apply essentials
+
+kuva 22
+
+...ja etene sitten ourpython-kansioon.
+
+    cd ourpython/
+
+Muodosta Ourpythoninkin sisälle init.sls-tiedosto.
+
+    sudoedit init.sls
+
+Syörä ourpython-kansion init.sls-tiedostoon alla oleva sisältö.
+Huom! Koska toteutusjärjestys on listauksen mukainen, pidä kyseiset osiot niille osoitetuilla sijoituksilla.
+
+    #srv/salt/ourpython/init.sls
+      mypkgs:
+        pkg.installed:
+          - pkgs:
+            - python3
+            - python3-pip
+            - build-essential
+            - libssl-dev
+            - libffi-dev
+            - python3-dev
+            - python3-venv
+
+Ourpython-kansion init.sls:n sisällön muodostamisen ja tallettamisen jälkeen voit vielä tarkistaa että sisältö vastaa ohjeellista sisältöä. 
+
+    cat /srv/salt/essentials/init.sls
+
+Palaa tarkistuksen jälkeen /srv/salt/ polkuun ja testaa muodostetun init.sls:n toimivuus, kutsumalla sitä saltilla paikallisesti..
+
+    cd ..
+    sudo salt-call --local state.apply ourpython
+
+kuva 23
+
+Nyt kun tiedetään että pääasialliset paketit toimivat paikallisesti, voidaan muodostaa top.sls-tiedosto /srv/salt/-polkuun.
+
+    sudoedit top.sls
+
+    base:
+      '*':
+        - essentials
+        - ourpython
+
+Tämän jälkeen voidaan ajaa paketit minioneille.
+
+## Lopputulema masterilla, jonka toteuttaminen minioneille, periytyvästi, ei onnistunut
+
