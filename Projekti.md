@@ -20,7 +20,9 @@ Tarvitaan rawdog
 Voi olla ajallisesti ja tämän hetkisen osaamisen valossa parempi toteuttaa python ohjelmoinnin mahdollistava toteutus.
 Erikoisemmaksi sen tekisi, jos onnistuisin toteuttamaan oletuksellisen "Environments" kansion tai koodin, jota käyttäjä voi muokata, johon oletuksellinen ensimmäinen tila asetetaan.
 
-## Tavoitteet
+## Lähttö avoitteet
+
+## Realismi iskee, tavoitteiden uudelleen katsastus ja maalin orientointi
 
 ## Tarvittavat ohjelmat
 
@@ -55,6 +57,7 @@ Tässä voi käyttää myös muita editoreita, mutta ne saattavat vaatia erillis
     notepad Vagrantfile
 
 Tällä hetkellä listatut tiedot voidaan korvata Tero Karvisen esimerkillä, joka tarjoaa hyvän pohjan omalle yrittämiselle ja toistettavalle useiden koneiden muodostukselle.
+Jo tässä vaiheessa on mahdollista ottaa ylös mahdollisen master-koneen nimi sekä IP-osoite tiedot, joihin muodostettavilla minion-koneilla alaisuus kohdistetaan.
 
     # -*- mode: ruby -*-
     # vi: set ft=ruby :
@@ -100,4 +103,13 @@ Tiedot voi tarkistaa Powershellistä komennolla cat + polku.
 
 Kun Vagrantfile sisältää halutut muutokset, tulisi ennen seuraavaa vaihetta avata VM-ohjelma jos se ei ole vielä auki.
 
-## 
+VM:n avaamisen jälkeen, voidaan Powershellissä syöttää komento joka aloittaa kyseisen Vagrantfilen pohjalta uusien koneiden muodostamisen.
+Tässä voi mennä koneiden määrästä ja Vagrantfile-asetuksista riippuen useitakin minuutteja, ellei pidempäänkin.
+Huon! Jos sijaitset jo halutussa kohteessa voit suorittaa komennon ilman polullista tarkennusta: vagrant up
+
+    vagrant up
+
+Kun Powershellin ajo on päättynyt, tarkista VM-ohjelmasta että Vagrantfilessä ilmoitettu määrä koneita näkyy aktiivisina.
+Tämän jälkeen voit käydä hakemassa kahvia, rusauttaa rystyset ja jatkaa seuraavaan vaiheeseen. 
+
+## Master/Minion-suhteiden muodostaminen
