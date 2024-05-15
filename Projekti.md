@@ -427,7 +427,7 @@ Nyt kun perustoiminnallisuus on osoitettu aktiiviseksi, voidaan pythonin aktiivi
 
 ## Minionin ohjelmistollinen tila
 
-Pythonin toimintaa en pystynyt vielä testaamaan minionilla, mutta essentials-paketti oli asetettunut sinne ja mahdollisti muutoksien vahvistamisen gitin ajolla.
+Pythonin toimintaa en pystynyt vielä testaamaan minionilla halutusti automatisaatiolla, mutta essentials-paketti oli asetettunut sinne ja mahdollisti muutoksien vahvistamisen gitin ajolla.
 
 ![git toimii minionilla](https://github.com/Andtonyk/h1---Debian/assets/149326156/4a09ab13-d036-4413-bcca-e1ee5b76826a)
 
