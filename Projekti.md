@@ -24,10 +24,8 @@ Erikoisemmaksi sen tekisi, jos onnistuisin toteuttamaan oletuksellisen "Environm
 
 Aioin alkuun muodostaa RSSfeed-lukijan, mutta pitkään eri osien kanssa taisteltuani ja deadlinen tullessa vastaan voimalla, päätin siirtää toteutuksen yhteen osaan, joka oli monen feedereiden kanssa toimivilla tapetilla: Python.
 
-Alkuperäisen työn lähtöpisteenä toimi: rawdog-rssfeederi.
-Sen osat ja toiminnallisuus on kuvattuna projektin verkkosivuilla: https://offog.org/code/rawdog/
-
-Tai pikemminkin ajattelin tehdä mahdolliseksi toteuttaa python ympäristöllistä tekemistä omalla VM:llä, tässäkin tuli osaamisessa esteitä, mutta ei sellaisia, jotka olisivat keskeyttäneet koko prosessin.
+Aloin siis lähestyä paketin muodostusta, joka mahdollistaisi python ympäristön perustamisen kohde koneella. Tässäkin ilmeni haasteita, mutta projektin haluttu versio tuli silti toteutuksellisesti tehtyä masterilla.
+On siis mahdollista että esityksen jälkeen saan ohjeita, joilla saan toteutettua .sls-muutokset, jotka mahdollistavat projektin loppuunviennin halutussa mallissa.
 
 Tein myös ongelmista johtuen ajettavan kokoelman hyviä perusohjelmia, jotta voisin osoittaa sillä aivan perusasioiden hallinnan, halutun projektin ongelmista johtuen.
 
