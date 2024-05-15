@@ -24,9 +24,12 @@ Erikoisemmaksi sen tekisi, jos onnistuisin toteuttamaan oletuksellisen "Environm
 
 ## Tarvittavat ohjelmat
 
-Jotta loppu tulemaan päästäisiin tarvitset Windowsilla Powershellin, jonka voit ajaa admin-oikeuksilla.
-Vagrant-ohjelmistopaketin
-Salt-ohjelmistopaketin
+Jotta loppu tulemaan päästäisiin tarvitset alla olevat tai vastaavat ohjelmat.
+VM
+VM:lle asetettava OS-paketti, jolla käynnistettävät master/minionit halutaan toimiviksi
+Powershell, jossa Admin ajo ominaisuus.
+Vagrant-ohjelmistopaketti
+Salt-ohjelmistopaketti
 
 ## Aloitetaan alusta
 
@@ -89,5 +92,12 @@ Korvaa kentät joissa on x- nimellisesti halutun mukaisilla tiedoilla ja IP-osoi
     		x.vm.hostname = "x"
     		x.vm.network "private_network", ip: "192.168.88.xxx"
     	end
+     
+Tallenna muutokset Vagrantfileen ja poistu editorista.
+Tiedot voi tarkistaa Powershellistä komennolla cat + polku.
+
+    cat C:/Users/An2/Omaprojekti_kansio_esimerkki/Vagrantfile
+
+Kun Vagrantfile sisältää halutut muutokset, tulisi ennen seuraavaa vaihetta avata VM-ohjelma jos se ei ole vielä auki.
 
 ## 
