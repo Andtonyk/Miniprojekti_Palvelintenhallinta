@@ -351,6 +351,9 @@ Karvinen T. 2023, Salt Vagrant - automatically provision one master and two slav
 Karvinen T. 2024, Hello Salt Infra-as-Code
     Luettavissa: https://terokarvinen.com/2024/hello-salt-infra-as-code/
 
+Karvinen T. 2018, Pkg-File-Service – Control Daemons with Salt – Change SSH Server Port
+    Luettavissa: https://terokarvinen.com/2018/04/03/pkg-file-service-control-daemons-with-salt-change-ssh-server-port/?fromSearch=karvinen%20salt%20ssh
+
 Karvinen T. 2018, I Want My Computer Like This
     Luettavissa: https://terokarvinen.com/2018/salt-states-i-want-my-computers-like-this/
 
