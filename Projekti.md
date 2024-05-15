@@ -105,11 +105,85 @@ Kun Vagrantfile sisältää halutut muutokset, tulisi ennen seuraavaa vaihetta a
 
 VM:n avaamisen jälkeen, voidaan Powershellissä syöttää komento joka aloittaa kyseisen Vagrantfilen pohjalta uusien koneiden muodostamisen.
 Tässä voi mennä koneiden määrästä ja Vagrantfile-asetuksista riippuen useitakin minuutteja, ellei pidempäänkin.
-Huon! Jos sijaitset jo halutussa kohteessa voit suorittaa komennon ilman polullista tarkennusta: vagrant up
+Huom! Jos sijaitset jo halutussa kohteessa voit suorittaa komennon ilman polullista tarkennusta: vagrant up
 
     vagrant up
 
 Kun Powershellin ajo on päättynyt, tarkista VM-ohjelmasta että Vagrantfilessä ilmoitettu määrä koneita näkyy aktiivisina.
 Tämän jälkeen voit käydä hakemassa kahvia, rusauttaa rystyset ja jatkaa seuraavaan vaiheeseen. 
 
-## Master/Minion-suhteiden muodostaminen
+## Master-koneen muodostaminen
+
+Kun koneet ovat muodostuneet ja aktiivisina, voit ottaa niihin etäyhteyden Powershellin kautta.
+Ensimmäiseksi kannattaa ottaa yhteyttä siihen koneeseen, josta olet aikeissa tehdä isännän.
+
+    vagrant ssh koneen_nimi
+    vagrant ssh t001
+
+Kun olet onnistuneesti halutun koneen sisällä aja sille päivitykset.
+
+    sudo apt-get update
+
+Päivityksien jälkeen voit aloittaa muodostamaan koneesta masteria.
+
+    sudo apt-get -y install salt-master
+
+Kun asennus on päättynyt on hyvä tarkistaa että masterin tiedot vastaavat aiemmin ylös otettuja tietoja Vagrantfilestä.
+
+    hostname -I
+
+Tämän jälkeen voit poistua masterilta, takaisin Powershellin oletusnäkymään.
+
+    exit
+
+Sinun pitäisi olla samassa polussa, kuin ennen "vagrant ssh koneen_nimi" komennon syöttämistä. Jos näin ei olisi, navigoi itsesi oikeaan sijaintiin ennen minionin perustamista.
+
+
+## Minion-koneen muodostaminen
+
+Syötä Powershelliin aiemman mukainen vagrant komento.
+
+    vagrant ssh kohteen_nimi
+    vagrant ssh t002
+
+Hae tulevalle alaiselle päivitykset
+
+    sudo apt-get update
+
+Tämän jälkeen voidaan ladata minioniuden mahdollistava paketti.
+
+    sudo apt-get -y install salt-minion
+
+Kun alaisuus paketti on ladattu, tulee yhteys isäntään määrittää minionille.
+
+    sudoedit /etc/salt/minion
+
+Muokkaa "#master: " pois kommenttikentästä, poistamalla sen alussa oleva #-merkki ja syötä sen jälkeen aiemmin ylösotettu masterin IP-osoite "master: xxx.xxx.xxx.xxx".
+
+Tähän kuva 18
+
+Lisää myös "Explicitly declare the id"-kohtaan alaisena toimivan koneen nimi-tunniste ja poista sen edessä oleva #-merkki, että muutos ei jää kommentiksi.
+
+Muista tallentaa muutokset!
+
+Potkaise minionia, jotta muutokset aktivoituisivat.
+
+    sudo systemctl restart salt-minion.service
+
+Kun kyseiset muutokset on toteutettu ja mahdollisesti toistettu kaikilla minioneiksi haluavilla koneilla, voit palata Powershellin perusnäkymään.
+
+    exit
+
+## A good master leaves none out of the loot and bounty
+
+Powershelliin palautumisen jälkeen, aktivoi masteriksi osoitettu koneesi.
+
+    vagrant ssh t001
+
+Nyt voit tarkistaa tulivatko kaikkien minioneiden yhdistymispyynnöt onnistuneesti.
+
+    sudo salt-key
+
+Jos kaikki minion-koneet näkyvät odottavissa koneissa, voit siirtyä hyväksymään ne.
+    
+    sudo salt-key -A
