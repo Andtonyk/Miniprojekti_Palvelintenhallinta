@@ -228,7 +228,6 @@ Sisällöksi tuli init.sls:ssä alla olevan mukainen, ohjeellinen sisältö.
           - micro
           - curl
           - git
-          - build-essential
           - vlc
 
 Essentials-kansion init.sls:n sisällön muodostamisen ja tallettamisen jälkeen voit vielä tarkistaa että sisältö vastaa ohjeellista sisältöä. 
@@ -285,7 +284,28 @@ Nyt kun tiedetään että pääasialliset paketit toimivat paikallisesti, voidaa
         - essentials
         - ourpython
 
+Kun osat toimivat lokaalisti, voidaan ne sen jälkeen ajaa minioneille. top.sls-tiedoston muodostamisen takia tämä onnistuu ilamn pakettin erikseen ilmoittamista.
+
+    sudo salt '*' staet.apply
+
 Nyt osat, joilla voidaan päästä viimeiseen vaiheeseen ovat kasassa.
 
 ## Lopputulema masterilla, jonka toteuttaminen minioneille, periytyvästi, ei onnistunut
 
+
+
+
+
+## Lähteet
+
+Salt Project, 
+    Luettavissa: https://docs.saltproject.io/en/latest/ref/states/all/salt.states.file.html#salt.states.file.managed
+
+Karvinen T. 2023, Salt Vagrant - automatically provision one master and two slaves
+    Luettavissa: https://terokarvinen.com/2023/salt-vagrant/#infra-as-code---your-wishes-as-a-text-file
+
+Karvinen T. 2018, Salt Quickstart – Salt Stack Master and Slave on Ubuntu Linux 
+    Luettavissa: https://terokarvinen.com/2018/salt-quickstart-salt-stack-master-and-slave-on-ubuntu-linux/?fromSearch=salt%20quickstart%20salt%20stack%20master%20and%20slave%20on%20ubuntu%20linux
+
+Garnett A. 2023, How To Install Python 3 and Set Up a Programming Environment on Debian 11
+    Luettavissa: https://www.digitalocean.com/community/tutorials/how-to-install-python-3-and-set-up-a-programming-environment-on-debian-11
