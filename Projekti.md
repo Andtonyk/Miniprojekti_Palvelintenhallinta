@@ -27,6 +27,7 @@ Jotta loppu tulemaan päästäisiin tarvitset alla olevat tai vastaavat ohjelmat
 Kun tarvittavat ohjelmat ovat asennettuna, voidaan muodostaa kansiorakenteellinen polku, jonne aloitetaan muodostamaan aineistoa.
 Tämä voidaan totettaa manuaalisesti tai Powershellillä. Powershellillä muodostaminen onnistuu komennolla mkdir C:/Users/käyttäjän_nimi/kansion_nimi
 
+![kansion lisääminen powershellillä](https://github.com/Andtonyk/h1---Debian/assets/149326156/4832aa47-500b-4b4e-af88-7215505d24f6)
     mkdir C:/Users/An2/Omaprojekti_kansio_esimerkki
 
 Kun kansiollinen rakenne on muodostattu, tulee käyttäjän siirtyä sen sisälle Powershellissä komennolla cd C:/Users/käyttäjän_nimi/kansion_nimi tai Set-Location C:/Users/käyttäjän_nimi/kansion_nimi.
