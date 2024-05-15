@@ -285,7 +285,7 @@ Muodosta Ourpythoninkin sisälle init.sls-tiedosto.
 
     sudoedit init.sls
 
-Syörä ourpython-kansion init.sls-tiedostoon alla oleva sisältö.
+Syötä ourpython-kansion init.sls-tiedostoon alla oleva sisältö.
 Huom! Koska toteutusjärjestys on listauksen mukainen, pidä kyseiset osiot niille osoitetuilla sijoituksilla.
 
 ![ourpythonin init sisältö](https://github.com/Andtonyk/h1---Debian/assets/149326156/2579af61-3a76-402d-a1da-c9905f06823f)
@@ -351,7 +351,7 @@ Pythonin aktivaatio alueena pysyy pelkästään nämä kaksi muodostettavaa kans
 ![python3 9 -m venv komento ja sen seuraukset](https://github.com/Andtonyk/h1---Debian/assets/149326156/ffe4d7f2-eda8-4bc8-9388-1c1794eeb047)
 
     /home/environments.pyth$sudo python3.9 -m venv tähän_tulee_projektiympäristön_nimi
-    /home/environments.pyth$ python3.9 -m venv environments.pyth
+    /home/environments.pyth$sudo python3.9 -m venv environments.pyth
 
 Syöttämälläni nimellä muodostuvan kansion lopputulema oli hieman hämäävä, joten ympäristön nimi kannattaa erottaa halutun kohdekansion nimestä.
 
@@ -377,6 +377,8 @@ Jos kansion sisältö on kunnossa, voit palata ylempään kansioon ja aktivoida 
 
 Komennon onnistuessa ilmestyy komentorivin vasempaan kenttään ympäristön nimi sulkeissa. 
 HUOM! Tämä python-ympäristön aktiivisuus pysyy, kunnes syötetään komento: deactivate
+
+![onnistunut pyth-aktivointi](https://github.com/Andtonyk/h1---Debian/assets/149326156/da0eb3b9-d68d-4caf-9f33-36868632ac14)
 
      (ympäristönnimi) vagrant@käyttäjä:/valittu_polku/kansio_jonka_sisälle_venv_aineisto_muodostui$
      (environments.pyth) vagrant@t001:/home/environments.pyth$
@@ -406,9 +408,13 @@ Tallennetun tiedoston onnistuneesti muodostuminen voidaan tarkistaa ja jos se mu
 
 Nyt kun perustoiminnallisuus on osoitettu aktiiviseksi, voidaan pythonin aktiivisuus poistaa yksinkertaisella komennolla.
 
+![python projektin deaktivointi](https://github.com/Andtonyk/h1---Debian/assets/149326156/8b2ea70a-8933-448a-9265-dc760dcf8f20)
+
     deactivate
 
 ...ja tarpeen tullen aktivoida uudelleen samalla tavalla kuin aiemminkin.
+
+![pythin uudelleen aktivointi](https://github.com/Andtonyk/h1---Debian/assets/149326156/8f5f6148-81dd-44b7-b9ed-c99ab1bef983)
 
     source tähän_tulee_äsken_muodostetun_projektiympäristön_nimi/bin/activate
     source environments.pyth/bin/activate
