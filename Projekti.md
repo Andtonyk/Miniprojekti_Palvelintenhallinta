@@ -67,8 +67,6 @@ Tässä voi käyttää myös muita editoreita, mutta ne saattavat vaatia erillis
 Tällä hetkellä listatut tiedot voidaan korvata Tero Karvisen esimerkillä, joka tarjoaa hyvän pohjan omalle yrittämiselle ja toistettavalle useiden koneiden muodostukselle.
 Jo tässä vaiheessa on mahdollista ottaa ylös mahdollisen master-koneen nimi sekä IP-osoite tiedot, joihin muodostettavilla minion-koneilla alaisuus kohdistetaan.
 
-![Powershell cat Vagrantfilestä 5](https://github.com/Andtonyk/h1---Debian/assets/149326156/a77c10f8-91db-4639-a8e4-d5959a3ca12b)
-
     # -*- mode: ruby -*-
     # vi: set ft=ruby :
     # Copyright 2019-2021 Tero Karvinen http://TeroKarvinen.com
