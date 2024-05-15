@@ -1,25 +1,6 @@
 Huom! Kaikki testit on toteuttu seuraavanlaisella koneella: Windows 10 OS:llä, Google Chrome selaimella ja koneena on toiminut Legion 5 kannettava. 16Gt RAM, AMD Ryzen 7 5800H, NVIDIA Geforce 3070 ja 200GB vapaata levytilaa SSD-levyasemalla.
 # H7 - This one ugly baby
 
-Tarkoituksena olisi saada RSS-aineiston lukija tai sen mahdollistava moduulikokonaisuus aikaiseksi.
-
-Masteriin .sls-muodostettavaa koodia
-
-Tarvitaan python sekä pip
-    sudo apt-get install python3
-    sudo apt install -y python3-pip
-
-Pipin asentuminen antaa mahdollisuudet asentaa feedparserin tarvitsemia osio pythonista.
-Rawdog sivun mukaan tarvittaisiin 
-
-
-Tarvitaan pytidylib ilman sls:ää: pip3 install pytidylib
-Tarvitaan feedparser ilman sls:ää: pip3 install feedparser
-Tarvitaan rawdog
-
-Voi olla ajallisesti ja tämän hetkisen osaamisen valossa parempi toteuttaa python ohjelmoinnin mahdollistava toteutus.
-Erikoisemmaksi sen tekisi, jos onnistuisin toteuttamaan oletuksellisen "Environments" kansion tai koodin, jota käyttäjä voi muokata, johon oletuksellinen ensimmäinen tila asetetaan.
-
 ## Lähtökohdat ja kylmärealismi
 
 Aioin alkuun muodostaa RSSfeed-lukijan, mutta pitkään eri osien kanssa taisteltuani ja deadlinen tullessa vastaan voimalla, päätin siirtää toteutuksen yhteen osaan, joka oli monen feedereiden kanssa toimivilla tapetilla: Python.
@@ -297,7 +278,8 @@ Valitsin omalle testilleni /home/-polun.
     sudo mkdir environments.pyth
     cd environments.pyth/
 
-Kun pääsin haluttuun hakemistoon ajoin komennon, jolla haetaan pythonin sisältöä kansioon, joka toimii projektiympäristönä.
+Kun pääsin haluttuun hakemistoon ajoin komennon, jolla haetaan pythonin sisältöä kansioon, joka toimii projektiympäristönä. 
+Pythonin aktivaatio alueena pysyy pelkästään nämä kaksi muodostettavaa kansiota, muualla aktivaatiokomento ei toimi.
 
     /home/environments.pyth$sudo python3.9 -m venv tähän_tulee_projektiympäristön_nimi
     /home/environments.pyth$ python3.9 -m venv environments.pyth
@@ -318,6 +300,35 @@ Jos kansion sisältö on kunnossa, voit palata ylempään kansioon ja aktivoida 
     cd ..
     source tähän_tulee_äsken_muodostetun_projektiympäristön_nimi/bin/activate
     source environments.pyth/bin/activate
+
+Komennon onnistuessa ilmestyy komentorivin vasempaan kenttään ympäristön nimi sulkeissa. 
+HUOM! Tämä python-ympäristön aktiivisuus pysyy, kunnes syötetään komento: deactivate
+
+     (ympäristönnimi) vagrant@käyttäjä:/valittu_polku/kansio_jonka_sisälle_venv_aineisto_muodostui$
+     (environments.pyth) vagrant@t001:/home/environments.pyth$
+
+Kun python-ympäristö on aktivoituna, voidaan aloittaa ensimmäisen testi projektin muodostaminen.
+
+    micro hello.py
+
+Tämä avaa MICRO-editorin, jonka latasimme essentials-paketin mukana ja mahdollistaa selvemmän tiedoston käsittelyn.
+Lisätään editorissa hieman tekstiä ja talletetaan se.
+
+    print("Hello, World!")
+
+Tallennetun tiedoston onnistuneesti muodostuminen voidaan tarkistaa ja jos se muodostui onnistuneesti, voidaan se ajaa.
+
+    ls
+    python hello.py
+
+tähän kuva tulostuvasta hello world näkymästä
+
+Nyt kun perustoiminnallisuus on osoitettu aktiiviseksi, voidaan pythonin aktiivisuus poistaa yksinkertaisella komennolla.
+
+    deactivate
+
+...ja tarpeen tullen aktivoida uudelleen samalla tavalla kuin aiemminkin.
+    
 
 ## Lähteet
 
