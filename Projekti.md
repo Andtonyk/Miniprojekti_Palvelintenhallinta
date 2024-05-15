@@ -28,9 +28,12 @@ Kun tarvittavat ohjelmat ovat asennettuna, voidaan muodostaa kansiorakenteelline
 Tämä voidaan totettaa manuaalisesti tai Powershellillä. Powershellillä muodostaminen onnistuu komennolla mkdir C:/Users/käyttäjän_nimi/kansion_nimi
 
 ![kansion lisääminen powershellillä](https://github.com/Andtonyk/h1---Debian/assets/149326156/4832aa47-500b-4b4e-af88-7215505d24f6)
+    
     mkdir C:/Users/An2/Omaprojekti_kansio_esimerkki
 
 Kun kansiollinen rakenne on muodostattu, tulee käyttäjän siirtyä sen sisälle Powershellissä komennolla cd C:/Users/käyttäjän_nimi/kansion_nimi tai Set-Location C:/Users/käyttäjän_nimi/kansion_nimi.
+
+![Kansioon siirtymisen komennot Powershellissä 2](https://github.com/Andtonyk/h1---Debian/assets/149326156/c59b995a-ce8f-4ead-89b1-00626025015b)
 
     cd C:/Users/An2/Omaprojekti_kansio_esimerkki
     Set-Location C:/Users/An2/Omaprojekti_kansio_esimerkki
@@ -41,15 +44,22 @@ Powershell ilmoittaa tiedoston muodostumisen onnistumisesta, mutta voit tarkista
 HUOM! Vagrantfile muodostuu siihen kansioon, jossa käyttäjä on komennon syöttämisen aikana. Varo siis mahdollisia päällekkäisyyksiä, kun olet muodostanut enemmän testiympäristöjä ja käyttäjärakenteita.
 
     vagrant init debian/bullseye64
+
+![Vagrantfilen muodostumisen tarkistus Powershellissä 3](https://github.com/Andtonyk/h1---Debian/assets/149326156/74e07e98-e4cc-4b30-925c-ec8c4de4c2da)
+    
     ls
 
 Vagrantfilen muodostumisen jälkeen voidaan sille asettaa muodostettavien VM-koneiden määritykset esim. notepadin kautta.
 Tässä voi käyttää myös muita editoreita, mutta ne saattavat vaatia erillisen asennuksen.
 
+![Powershellillä Vagrantfilen avaaminen halutussa editorissa 4](https://github.com/Andtonyk/h1---Debian/assets/149326156/58556523-d17c-477b-88fd-edc37747c587)
+
     notepad Vagrantfile
 
 Tällä hetkellä listatut tiedot voidaan korvata Tero Karvisen esimerkillä, joka tarjoaa hyvän pohjan omalle yrittämiselle ja toistettavalle useiden koneiden muodostukselle.
 Jo tässä vaiheessa on mahdollista ottaa ylös mahdollisen master-koneen nimi sekä IP-osoite tiedot, joihin muodostettavilla minion-koneilla alaisuus kohdistetaan.
+
+![Powershell cat Vagrantfilestä 5](https://github.com/Andtonyk/h1---Debian/assets/149326156/a77c10f8-91db-4639-a8e4-d5959a3ca12b)
 
     # -*- mode: ruby -*-
     # vi: set ft=ruby :
@@ -97,11 +107,17 @@ Kun Vagrantfile sisältää halutut muutokset, tulisi ennen seuraavaa vaihetta a
 
 VM:n avaamisen jälkeen, voidaan Powershellissä syöttää komento joka aloittaa kyseisen Vagrantfilen pohjalta uusien koneiden muodostamisen.
 Tässä voi mennä koneiden määrästä ja Vagrantfile-asetuksista riippuen useitakin minuutteja, ellei pidempäänkin.
+
 Huom! Jos sijaitset jo halutussa kohteessa voit suorittaa komennon ilman polullista tarkennusta: vagrant up
+
+![Powershellillä vagrant upin aloittaminen](https://github.com/Andtonyk/h1---Debian/assets/149326156/626137b2-9df8-4ae5-b539-f02050f876b6)
 
     vagrant up
 
 Kun Powershellin ajo on päättynyt, tarkista VM-ohjelmasta että Vagrantfilessä ilmoitettu määrä koneita näkyy aktiivisina.
+
+![Vagrantin muodostuksen mukaiset VM-koneet 7](https://github.com/Andtonyk/h1---Debian/assets/149326156/b87a5888-02cd-46c5-b7a6-5d5220a55437)
+
 Tämän jälkeen voit käydä hakemassa kahvia, rusauttaa rystyset ja jatkaa seuraavaan vaiheeseen. 
 
 ## Master-koneen muodostaminen
