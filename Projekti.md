@@ -285,7 +285,7 @@ Nyt kun tiedetään että pääasialliset paketit toimivat paikallisesti, voidaa
         - essentials
         - ourpython
 
-Tämän jälkeen voidaan ajaa paketit minioneille.
+Nyt osat, joilla voidaan päästä viimeiseen vaiheeseen ovat kasassa.
 
 ## Lopputulema masterilla, jonka toteuttaminen minioneille, periytyvästi, ei onnistunut
 
