@@ -328,7 +328,9 @@ Nyt kun perustoiminnallisuus on osoitettu aktiiviseksi, voidaan pythonin aktiivi
     deactivate
 
 ...ja tarpeen tullen aktivoida uudelleen samalla tavalla kuin aiemminkin.
-    
+
+    source tähän_tulee_äsken_muodostetun_projektiympäristön_nimi/bin/activate
+    source environments.pyth/bin/activate
 
 ## Lähteet
 
