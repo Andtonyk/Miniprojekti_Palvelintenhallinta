@@ -5,7 +5,9 @@ Huom! Kaikki testit on toteuttu seuraavanlaisella koneella: Windows 10 OS:llä, 
 
 Aioin alkuun muodostaa RSSfeed-lukijan, mutta pitkään eri osien kanssa taisteltuani ja deadlinen tullessa vastaan voimalla, päätin siirtää toteutuksen yhteen osaan, joka oli monen feedereiden kanssa toimivilla tapetilla: Python.
 
-Aloin siis lähestyä paketin muodostusta, joka mahdollistaisi python ympäristön perustamisen kohde koneella. Tässäkin ilmeni haasteita, mutta projektin haluttu versio tuli silti toteutuksellisesti tehtyä masterilla.
+Aloin siis lähestyä paketin muodostusta, joka mahdollistaisi python ympäristön perustamisen kohde koneella. 
+
+Tässäkin ilmeni haasteita, mutta projektin haluttu versio tuli silti toteutuksellisesti tehtyä masterilla.
 On siis mahdollista että esityksen jälkeen saan ohjeita, joilla saan toteutettua .sls-muutokset, jotka mahdollistavat projektin loppuunviennin halutussa mallissa.
 
 Tein myös ongelmista johtuen ajettavan kokoelman hyviä perusohjelmia, jotta voisin osoittaa sillä aivan perusasioiden hallinnan, halutun projektin ongelmista johtuen.
@@ -32,8 +34,10 @@ Kun kansiollinen rakenne on muodostattu, tulee käyttäjän siirtyä sen sisäll
     cd C:/Users/An2/Omaprojekti_kansio_esimerkki
     Set-Location C:/Users/An2/Omaprojekti_kansio_esimerkki
 
-Halutussa polussa voidaan aloittaa Vagrantfilen muodostaminen komennolla vagrant init debian/bullseye64. Powershell ilmoittaa tiedoston muodostumisen onnistumisesta, mutta voit tarkistaa sen vielä komennolla: ls.
-Vagrantfile muodostuu siihen kansioon, jossa käyttäjä on polussa, komennon syöttämisen aikana. Varo siis mahdollisia päällekkäisyyksiä, kun olet muodostanut enemmän testiympäristöjä ja käyttäjärakenteita.
+Halutussa polussa voidaan aloittaa Vagrantfilen muodostaminen komennolla vagrant init debian/bullseye64.
+Powershell ilmoittaa tiedoston muodostumisen onnistumisesta, mutta voit tarkistaa sen vielä komennolla: ls.
+
+HUOM! Vagrantfile muodostuu siihen kansioon, jossa käyttäjä on komennon syöttämisen aikana. Varo siis mahdollisia päällekkäisyyksiä, kun olet muodostanut enemmän testiympäristöjä ja käyttäjärakenteita.
 
     vagrant init debian/bullseye64
     ls
@@ -331,6 +335,10 @@ Nyt kun perustoiminnallisuus on osoitettu aktiiviseksi, voidaan pythonin aktiivi
 
     source tähän_tulee_äsken_muodostetun_projektiympäristön_nimi/bin/activate
     source environments.pyth/bin/activate
+
+## Minionin ohjelmistollinen tila
+
+
 
 ## Lähteet
 
