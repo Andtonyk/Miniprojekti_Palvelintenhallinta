@@ -32,6 +32,7 @@ Tein myös ongelmista johtuen ajettavan kokoelman hyviä perusohjelmia, jotta vo
 ## Tarvittavat ohjelmat alkuun pääsyssä
 
 Jotta loppu tulemaan päästäisiin tarvitset alla olevat tai vastaavat ohjelmat.
+
 VM
 VM:lle asetettava OS-paketti, jolla käynnistettävät master/minionit halutaan toimiviksi
 Powershell, jossa Admin ajo ominaisuus.
@@ -289,9 +290,34 @@ Muista ajaa komennot kahteen kertaan, jotta idempotenssillinen tila voidaan varm
 
 ## Lopputulema masterilla, jonka toteuttaminen minioneille, periytyvästi, ei onnistunut
 
+Kun ourpython-on onnistuneesti ladattuna, voidaan aloittaa python-ympäristön muodostaminen. Tee tai siirry haluttuun kansioon, jossa python-projekti haluttaisiin toteuttaa.
+Valitsin omalle testilleni /home/-polun.
 
+    cd /home
+    sudo mkdir environments.pyth
+    cd environments.pyth/
 
+Kun pääsin haluttuun hakemistoon ajoin komennon, jolla haetaan pythonin sisältöä kansioon, joka toimii projektiympäristönä.
 
+    /home/environments.pyth$sudo python3.9 -m venv tähän_tulee_projektiympäristön_nimi
+    /home/environments.pyth$ python3.9 -m venv environments.pyth
+
+Syöttämälläni nimellä muodostuvan kansion lopputulema oli hieman hämäävä, joten ympäristön nimi kannattaa erottaa halutun kohdekansion nimestä.
+
+    cd tähän_tulee_äsken_muodostetun_projektiympäristön_nimi/
+    cd environments.pyth/
+    /home/environments.pyth/environments.pyth$
+
+Kun olet päässyt muodostettuun kansioon tarkista sen sisältö.
+
+    ls
+    bin include lib lib64 pyvenv.cfg share
+
+Jos kansion sisältö on kunnossa, voit palata ylempään kansioon ja aktivoida python ympäristön kutsumalla sitä aiemmin muodostetun nimen avulla.
+
+    cd ..
+    source tähän_tulee_äsken_muodostetun_projektiympäristön_nimi/bin/activate
+    source environments.pyth/bin/activate
 
 ## Lähteet
 
