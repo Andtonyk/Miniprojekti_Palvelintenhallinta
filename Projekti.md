@@ -20,11 +20,18 @@ Tarvitaan rawdog
 Voi olla ajallisesti ja tämän hetkisen osaamisen valossa parempi toteuttaa python ohjelmoinnin mahdollistava toteutus.
 Erikoisemmaksi sen tekisi, jos onnistuisin toteuttamaan oletuksellisen "Environments" kansion tai koodin, jota käyttäjä voi muokata, johon oletuksellinen ensimmäinen tila asetetaan.
 
-## Lähttö avoitteet
+## Lähtökohdat ja kylmärealismi
 
-## Realismi iskee, tavoitteiden uudelleen katsastus ja maalin orientointi
+Aioin alkuun muodostaa RSSfeed-lukijan, mutta pitkään eri osien kanssa taisteltuani ja deadlinen tullessa vastaan voimalla, päätin siirtää toteutuksen yhteen osaan, joka oli monen feedereiden kanssa toimivilla tapetilla: Python.
 
-## Tarvittavat ohjelmat
+Alkuperäisen työn lähtöpisteenä toimi: rawdog-rssfeederi.
+Sen osat ja toiminnallisuus on kuvattuna projektin verkkosivuilla: https://offog.org/code/rawdog/
+
+Tai pikemminkin ajattelin tehdä mahdolliseksi toteuttaa python ympäristöllistä tekemistä omalla VM:llä, tässäkin tuli osaamisessa esteitä, mutta ei sellaisia, jotka olisivat keskeyttäneet koko prosessin.
+
+Tein myös ongelmista johtuen ajettavan kokoelman hyviä perusohjelmia, jotta voisin osoittaa sillä aivan perusasioiden hallinnan, halutun projektin ongelmista johtuen.
+
+## Tarvittavat ohjelmat alkuun pääsyssä
 
 Jotta loppu tulemaan päästäisiin tarvitset alla olevat tai vastaavat ohjelmat.
 VM
@@ -275,20 +282,12 @@ Palaa tarkistuksen jälkeen /srv/salt/ polkuun ja testaa muodostetun init.sls:n 
 
 kuva 23
 
-Nyt kun tiedetään että pääasialliset paketit toimivat paikallisesti, voidaan muodostaa top.sls-tiedosto /srv/salt/-polkuun.
+Kun osat toimivat lokaalisti, voidaan ne sen jälkeen ajaa minioneille.
+Muista ajaa komennot kahteen kertaan, jotta idempotenssillinen tila voidaan varmistaa.
 
-    sudoedit top.sls
+    sudo salt '*' state.apply ourpython
+    sudo salt '*' state.apply ourpython
 
-    base:
-      '*':
-        - essentials
-        - ourpython
-
-Kun osat toimivat lokaalisti, voidaan ne sen jälkeen ajaa minioneille. top.sls-tiedoston muodostamisen takia tämä onnistuu ilamn pakettin erikseen ilmoittamista.
-
-    sudo salt '*' staet.apply
-
-Nyt osat, joilla voidaan päästä viimeiseen vaiheeseen ovat kasassa.
 
 ## Lopputulema masterilla, jonka toteuttaminen minioneille, periytyvästi, ei onnistunut
 
