@@ -14,11 +14,11 @@ Tein myös ongelmista johtuen ajettavan kokoelman hyviä perusohjelmia, jotta vo
 
 Jotta loppu tulemaan päästäisiin tarvitset alla olevat tai vastaavat ohjelmat.
 
-VM
-VM:lle asetettava OS-paketti, jolla käynnistettävät master/minionit halutaan toimiviksi
-Powershell, jossa Admin ajo ominaisuus.
-Vagrant-ohjelmistopaketti
-Salt-ohjelmistopaketti
+- VM
+- VM:lle asetettava OS-paketti, jolla käynnistettävät master/minionit halutaan toimiviksi
+- Powershell, jossa Admin ajo ominaisuus.
+- Vagrant-ohjelmistopaketti
+- Salt-ohjelmistopaketti
 
 ## Aloitetaan alusta
 
