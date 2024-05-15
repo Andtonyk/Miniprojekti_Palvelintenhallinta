@@ -348,6 +348,12 @@ Salt Project,
 Karvinen T. 2023, Salt Vagrant - automatically provision one master and two slaves
     Luettavissa: https://terokarvinen.com/2023/salt-vagrant/#infra-as-code---your-wishes-as-a-text-file
 
+Karvinen T. 2024, Hello Salt Infra-as-Code
+    Luettavissa: https://terokarvinen.com/2024/hello-salt-infra-as-code/
+
+Karvinen T. 2018, I Want My Computer Like This
+    Luettavissa: https://terokarvinen.com/2018/salt-states-i-want-my-computers-like-this/
+
 Karvinen T. 2018, Salt Quickstart – Salt Stack Master and Slave on Ubuntu Linux 
     Luettavissa: https://terokarvinen.com/2018/salt-quickstart-salt-stack-master-and-slave-on-ubuntu-linux/?fromSearch=salt%20quickstart%20salt%20stack%20master%20and%20slave%20on%20ubuntu%20linux
 
