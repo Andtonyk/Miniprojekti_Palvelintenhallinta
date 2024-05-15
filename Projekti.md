@@ -222,6 +222,8 @@ Jos kaikki minion-koneet näkyvät odottavissa koneissa, voit siirtyä hyväksym
 
 Tämän jälkeen on vielä hyvä varmistaa että hyväksytyt koneet vastaavat masterilta tuleviin salt-komentoihin.
 
+![whoami minioneille](https://github.com/Andtonyk/h1---Debian/assets/149326156/198c9b38-a690-42ed-92f4-a73b66370839)
+
     sudo salt '*' cmd.run 'whoami'
 
 Jos kaikki toivotut minionit vastasivat kyselyyn, voidaan siirtyä muodostamaan masterilla ajettavia komentoja.
@@ -253,6 +255,8 @@ Tämän jälkeen siirryin muodostamaan ensin essentialin sisältöä.
 
 Sisällöksi tuli init.sls:ssä alla olevan mukainen, ohjeellinen sisältö.
 
+![esseential paketin sls 22](https://github.com/Andtonyk/h1---Debian/assets/149326156/bab23bcf-e14c-40cd-b605-46224e0e8acb)
+
   #srv/salt/essentials/init.sls
     mypkgs:
       pkg.installed:
@@ -268,10 +272,10 @@ Essentials-kansion init.sls:n sisällön muodostamisen ja tallettamisen jälkeen
 
 Palaa tarkistuksen jälkeen /srv/salt/ polkuun ja testaa muodostetun init.sls:n toimivuus, kutsumalla sitä saltilla paikallisesti. 
 
+![sudo salt-call --local state apply essentials komennon testaus, onnistui 22](https://github.com/Andtonyk/h1---Debian/assets/149326156/29db9eca-14e2-4afb-9b1b-54d02850bbe1)
+
     cd ..
     sudo salt-call --local state.apply essentials
-
-kuva 22
 
 ...ja etene sitten ourpython-kansioon.
 
@@ -283,6 +287,8 @@ Muodosta Ourpythoninkin sisälle init.sls-tiedosto.
 
 Syörä ourpython-kansion init.sls-tiedostoon alla oleva sisältö.
 Huom! Koska toteutusjärjestys on listauksen mukainen, pidä kyseiset osiot niille osoitetuilla sijoituksilla.
+
+![ourpythonin init sisältö](https://github.com/Andtonyk/h1---Debian/assets/149326156/2579af61-3a76-402d-a1da-c9905f06823f)
 
     #srv/salt/ourpython/init.sls
       mypkgs:
@@ -302,16 +308,32 @@ Ourpython-kansion init.sls:n sisällön muodostamisen ja tallettamisen jälkeen 
 
 Palaa tarkistuksen jälkeen /srv/salt/ polkuun ja testaa muodostetun init.sls:n toimivuus, kutsumalla sitä saltilla paikallisesti..
 
+![sudo salt-call --local state apply ourpython komennon testaus, onnistui 23](https://github.com/Andtonyk/h1---Debian/assets/149326156/9f321c77-2403-4f56-9d93-33a35a3eeefb)
+
     cd ..
     sudo salt-call --local state.apply ourpython
-
-kuva 23
 
 Kun osat toimivat lokaalisti, voidaan ne sen jälkeen ajaa minioneille.
 Muista ajaa komennot kahteen kertaan, jotta idempotenssillinen tila voidaan varmistaa.
 
+![ourpython saltilla t002een 25](https://github.com/Andtonyk/h1---Debian/assets/149326156/e42fee5f-9bd8-46fe-a756-936864a0f0dc)
+
     sudo salt '*' state.apply ourpython
+
+![ourpython saltilla t002een, idempotenssi 26](https://github.com/Andtonyk/h1---Debian/assets/149326156/d4e7c602-33fa-4fe1-9eaf-a27bf315b916)
+    
     sudo salt '*' state.apply ourpython
+
+Tämän jälkeen ajoin essentials-paketin, myös kahteen kertaan.
+
+![essentials salt sudo onnistui 27](https://github.com/Andtonyk/h1---Debian/assets/149326156/b0577903-c7e6-4c63-a83b-e14fb3067951)
+
+    sudo salt '*' state.apply essentials
+
+![essentials salt sudo idempotenssi 28](https://github.com/Andtonyk/h1---Debian/assets/149326156/94b0f157-6a4b-4be3-82b6-2f9def421283)
+
+    sudo salt '*' state.apply essentials
+
 
 
 ## Lopputulema masterilla, jonka toteuttaminen minioneille, periytyvästi, ei onnistunut
@@ -326,6 +348,8 @@ Valitsin omalle testilleni /home/-polun.
 Kun pääsin haluttuun hakemistoon ajoin komennon, jolla haetaan pythonin sisältöä kansioon, joka toimii projektiympäristönä. 
 Pythonin aktivaatio alueena pysyy pelkästään nämä kaksi muodostettavaa kansiota, muualla aktivaatiokomento ei toimi.
 
+![python3 9 -m venv komento ja sen seuraukset](https://github.com/Andtonyk/h1---Debian/assets/149326156/ffe4d7f2-eda8-4bc8-9388-1c1794eeb047)
+
     /home/environments.pyth$sudo python3.9 -m venv tähän_tulee_projektiympäristön_nimi
     /home/environments.pyth$ python3.9 -m venv environments.pyth
 
@@ -337,12 +361,17 @@ Syöttämälläni nimellä muodostuvan kansion lopputulema oli hieman hämääv�
 
 Kun olet päässyt muodostettuun kansioon tarkista sen sisältö.
 
+![ympäristökansion sisältö](https://github.com/Andtonyk/h1---Debian/assets/149326156/8da5cd80-5ad4-4958-b972-de7c889d1f9d)
+
     ls
     bin include lib lib64 pyvenv.cfg share
 
 Jos kansion sisältö on kunnossa, voit palata ylempään kansioon ja aktivoida python ympäristön kutsumalla sitä aiemmin muodostetun nimen avulla.
 
     cd ..
+
+![pythonin aktivointi komento](https://github.com/Andtonyk/h1---Debian/assets/149326156/3056bb4c-7903-48c3-89f9-4fa24a6c9ec6)
+
     source tähän_tulee_äsken_muodostetun_projektiympäristön_nimi/bin/activate
     source environments.pyth/bin/activate
 
@@ -354,19 +383,26 @@ HUOM! Tämä python-ympäristön aktiivisuus pysyy, kunnes syötetään komento:
 
 Kun python-ympäristö on aktivoituna, voidaan aloittaa ensimmäisen testi projektin muodostaminen.
 
+![python tiedoston perustaminen microlla hello py](https://github.com/Andtonyk/h1---Debian/assets/149326156/1da65c68-63ea-4ad9-a519-d48b7b3bb8f5)
+
     micro hello.py
 
 Tämä avaa MICRO-editorin, jonka latasimme essentials-paketin mukana ja mahdollistaa selvemmän tiedoston käsittelyn.
 Lisätään editorissa hieman tekstiä ja talletetaan se.
 
+![pythonilla toteutettu hello worls microlla](https://github.com/Andtonyk/h1---Debian/assets/149326156/7e2a9443-4865-44b7-a415-efadedde158b)
+
     print("Hello, World!")
 
 Tallennetun tiedoston onnistuneesti muodostuminen voidaan tarkistaa ja jos se muodostui onnistuneesti, voidaan se ajaa.
 
-    ls
-    python hello.py
+![muodostuneen python tiedoston olevaisuuden tarkistus](https://github.com/Andtonyk/h1---Debian/assets/149326156/ed2ca662-5aed-41b1-a130-f78ede36d8a1)
 
-tähän kuva tulostuvasta hello world näkymästä
+    ls
+
+![hello worldin tulostus ja  py tiedoston toiminnan varmistus](https://github.com/Andtonyk/h1---Debian/assets/149326156/5d4e03ec-f83a-4c6a-bc52-74d01ea66024)
+    
+    python hello.py
 
 Nyt kun perustoiminnallisuus on osoitettu aktiiviseksi, voidaan pythonin aktiivisuus poistaa yksinkertaisella komennolla.
 
@@ -379,7 +415,11 @@ Nyt kun perustoiminnallisuus on osoitettu aktiiviseksi, voidaan pythonin aktiivi
 
 ## Minionin ohjelmistollinen tila
 
+Pythonin toimintaa en pystynyt vielä testaamaan minionilla, mutta essentials-paketti oli asetettunut sinne ja mahdollisti muutoksien vahvistamisen gitin ajolla.
 
+![git toimii minionilla](https://github.com/Andtonyk/h1---Debian/assets/149326156/4a09ab13-d036-4413-bcca-e1ee5b76826a)
+
+    git
 
 ## Lähteet
 
