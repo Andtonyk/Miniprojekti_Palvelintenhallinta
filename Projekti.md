@@ -37,8 +37,8 @@ Tämä voidaan totettaa manuaalisesti tai Powershellillä. Powershellillä muodo
 
 Kun kansiollinen rakenne on muodostattu, tulee käyttäjän siirtyä sen sisälle Powershellissä komennolla cd C:/Users/käyttäjän_nimi/kansion_nimi tai Set-Location C:/Users/käyttäjän_nimi/kansion_nimi.
 
-   cd C:/Users/An2/Omaprojekti_kansio_esimerkki
-   Set-Location C:/Users/An2/Omaprojekti_kansio_esimerkki
+    cd C:/Users/An2/Omaprojekti_kansio_esimerkki
+    Set-Location C:/Users/An2/Omaprojekti_kansio_esimerkki
 
 Halutussa polussa voidaan aloittaa Vagrantfilen muodostaminen komennolla vagrant init debian/bullseye64. Powershell ilmoittaa tiedoston muodostumisen onnistumisesta, mutta voit tarkistaa sen vielä komennolla: ls.
 Vagrantfile muodostuu siihen kansioon, jossa käyttäjä on polussa, komennon syöttämisen aikana. Varo siis mahdollisia päällekkäisyyksiä, kun olet muodostanut enemmän testiympäristöjä ja käyttäjärakenteita.
