@@ -125,22 +125,32 @@ Tämän jälkeen voit käydä hakemassa kahvia, rusauttaa rystyset ja jatkaa seu
 Kun koneet ovat muodostuneet ja aktiivisina, voit ottaa niihin etäyhteyden Powershellin kautta.
 Ensimmäiseksi kannattaa ottaa yhteyttä siihen koneeseen, josta olet aikeissa tehdä isännän.
 
+![Powershellillä vagrant ssh muodostus t001 8](https://github.com/Andtonyk/h1---Debian/assets/149326156/6dea9e2d-087e-46b7-9ed9-b6cef1aeb633)
+
     vagrant ssh koneen_nimi
     vagrant ssh t001
 
 Kun olet onnistuneesti halutun koneen sisällä aja sille päivitykset.
 
+![t001 sudo apt-get update 9](https://github.com/Andtonyk/h1---Debian/assets/149326156/9d49a727-6112-4a79-af99-8215cffeee10)
+
     sudo apt-get update
 
 Päivityksien jälkeen voit aloittaa muodostamaan koneesta masteria.
+
+![t001 sudo apt-get install salt-master 10](https://github.com/Andtonyk/h1---Debian/assets/149326156/14b286e9-05d4-43cb-8946-d2451ce7a7e2)
 
     sudo apt-get -y install salt-master
 
 Kun asennus on päättynyt on hyvä tarkistaa että masterin tiedot vastaavat aiemmin ylös otettuja tietoja Vagrantfilestä.
 
+![t001 hostname 11](https://github.com/Andtonyk/h1---Debian/assets/149326156/a02590e7-e9ea-43c9-a96f-cc39244ba38f)
+
     hostname -I
 
 Tämän jälkeen voit poistua masterilta, takaisin Powershellin oletusnäkymään.
+
+![t001 exit](https://github.com/Andtonyk/h1---Debian/assets/149326156/d7ec5ec3-1667-4435-8fc2-04dfcb622103)
 
     exit
 
@@ -151,14 +161,20 @@ Sinun pitäisi olla samassa polussa, kuin ennen "vagrant ssh koneen_nimi" komenn
 
 Syötä Powershelliin aiemman mukainen vagrant komento.
 
+![Powershellillä vagrant ssh muodostus t002 13](https://github.com/Andtonyk/h1---Debian/assets/149326156/5b6212c3-5ba4-4e2a-b948-363cddb2c497)
+
     vagrant ssh kohteen_nimi
     vagrant ssh t002
 
 Hae tulevalle alaiselle päivitykset
 
+![t002 sudo apt-get update 14](https://github.com/Andtonyk/h1---Debian/assets/149326156/131e3c5f-a63b-4b83-9a41-b5476b2c48d2)
+
     sudo apt-get update
 
 Tämän jälkeen voidaan ladata minioniuden mahdollistava paketti.
+
+![t001 sudo apt-get install salt-minion 15](https://github.com/Andtonyk/h1---Debian/assets/149326156/2f8dc3d6-8db2-49f3-875d-f77c71ec64f9)
 
     sudo apt-get -y install salt-minion
 
@@ -168,9 +184,13 @@ Kun alaisuus paketti on ladattu, tulee yhteys isäntään määrittää minionil
 
 Muokkaa "#master: " pois kommenttikentästä, poistamalla sen alussa oleva #-merkki ja syötä sen jälkeen aiemmin ylösotettu masterin IP-osoite "master: xxx.xxx.xxx.xxx".
 
-Tähän kuva 18
+![sudoedit etc_salt_minion editoitava kenttä 16](https://github.com/Andtonyk/h1---Debian/assets/149326156/edd36cb8-26fe-4cfb-87fb-550c1cc336d4)
+
+![sudoedit etc_salt_minion editoinnin jälkeinen kenttä 17](https://github.com/Andtonyk/h1---Debian/assets/149326156/4e68a584-3854-4096-a383-06a22c0fedf8)
 
 Lisää myös "Explicitly declare the id"-kohtaan alaisena toimivan koneen nimi-tunniste ja poista sen edessä oleva #-merkki, että muutos ei jää kommentiksi.
+
+![sudoedit etc_salt_minion editoinnin jälkeinen kenttä 18](https://github.com/Andtonyk/h1---Debian/assets/149326156/4dc31329-19f2-423a-a393-ac7ed313eccb)
 
 Muista tallentaa muutokset!
 
@@ -190,9 +210,13 @@ Powershelliin palautumisen jälkeen, aktivoi masteriksi osoitettu koneesi.
 
 Nyt voit tarkistaa tulivatko kaikkien minioneiden yhdistymispyynnöt onnistuneesti.
 
+![sudo salt-key näkymä 19](https://github.com/Andtonyk/h1---Debian/assets/149326156/1c538e97-8e88-4adc-90e6-f17a7a82d1d2)
+
     sudo salt-key
 
 Jos kaikki minion-koneet näkyvät odottavissa koneissa, voit siirtyä hyväksymään ne.
+
+![sudo salt-key näkymä, hyväksytysti 20](https://github.com/Andtonyk/h1---Debian/assets/149326156/931d5456-796a-4272-955b-db5d8cb2fc26)
     
     sudo salt-key -A
 
